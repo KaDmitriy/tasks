@@ -32,5 +32,46 @@ class AreTheyTheSameTest {
 		int[] b5 = null;
 		assertEquals(false, AreTheyTheSame.comp(a5, b5));
 	}
+	
+	@Test
+	void testCompTime() {
+		
+		var testArrays = getTestArrays();
+		
+		assertEquals(true, AreTheyTheSame.comp(testArrays[0], testArrays[1]));
+		
+		long startTime = 0;
+		long endTime = 0;
+		long elapsedTime = 0;
+		
+		/*
+		startTime = System.currentTimeMillis();
+		assertEquals(true, AreTheyTheSame.comp(testArrays[0], testArrays[1]));
+		endTime = System.currentTimeMillis();
+		elapsedTime = (endTime - startTime)/1000;
+		System.out.println("My elapsed time: "+elapsedTime+" s");
+		*/
+		startTime = System.currentTimeMillis();
+		assertEquals(true, AreTheyTheSame.compCWTop(testArrays[0], testArrays[1]));
+		endTime = System.currentTimeMillis();
+		elapsedTime = (endTime - startTime);
+		System.out.println("CW top elapsed time: "+elapsedTime+" ms");
+		
+		startTime = System.currentTimeMillis();
+		assertEquals(true, AreTheyTheSame.compCWTop2(testArrays[0], testArrays[1]));
+		endTime = System.currentTimeMillis();
+		elapsedTime = (endTime - startTime);
+		System.out.println("CW top2 elapsed time: "+elapsedTime+" ms");
+	}
+	
+	private int[][] getTestArrays() {
+		int countNumber = 250_000;
+		int[][] testArrays = new int[2][countNumber];
+		for(int i = 0; i < countNumber; i++) {
+			testArrays[0][i] = (int) (Math.random() * 1000);
+			testArrays[1][i] = testArrays[0][i]*testArrays[0][i];
+		}
+		return testArrays;
+	}
 
 }

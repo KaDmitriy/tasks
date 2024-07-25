@@ -1,5 +1,7 @@
 package tasks.cw;
 
+import java.util.Arrays;
+
 public class AreTheyTheSame {
 
 	public static boolean comp(int[] a, int[] b) {
@@ -25,6 +27,33 @@ public class AreTheyTheSame {
 			if(result==false) break;
 		}
 		return result;
+	}
+	
+	/**
+	 * codewars top
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static boolean compCWTop(int[] a, int[] b) {
+		if ((a == null) || (b == null)){
+		      return false;
+		}
+		int[] aa = Arrays.stream(a).map(n -> n * n).toArray();
+		Arrays.sort(aa);
+		Arrays.sort(b);
+		return (Arrays.equals(aa, b));
+		
+	}
+	
+	/**
+	 * codewars top2
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static boolean compCWTop2(final int[] a, final int[] b) {
+		return a != null && b != null && a.length == b.length && Arrays.equals(Arrays.stream(a).map(i -> i * i).sorted().toArray(), Arrays.stream(b).sorted().toArray());
 	}
 
 }
