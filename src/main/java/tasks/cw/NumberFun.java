@@ -9,7 +9,7 @@ public class NumberFun {
 	    	   return res;
 	      }
 	      System.out.println(Long.MAX_VALUE);
-	      return -1; 
+	      return -1;
 	  }
 
 }
