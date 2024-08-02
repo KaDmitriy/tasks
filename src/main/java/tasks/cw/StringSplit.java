@@ -20,5 +20,18 @@ public class StringSplit {
 		s = (s.length() % 2 == 0) ? s : s + "_";
 		return s.split("(?<=\\G.{2})");
 	}
+	
+    public static String[] solutionCW2(String s) {
+        //Write your code here
+        if(s.length()%2==1) s+="_";
+        int n=s.length()/2;
+      
+      
+      String[] sub=new String[n];
+      for(int i=0;i<n;++i)
+      sub[i]=""+s.charAt(i*2)+s.charAt(1+i*2);
+      
+      return sub;
+    }
 
 }
